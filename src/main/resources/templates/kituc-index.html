@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="vi">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body, h1, h2, h3, h4, h5 {
+            font-family: 'Potta One', cursive !important;
+            /*font-family: "Poppins", sans-serif;*/
+        }
+
+        h1 {
+            margin: 0;
+            padding-top: 10px !important;
+            padding-bottom: 15px !important;
+            text-align: center;
+        }
+
+        body {
+            font-size: 16px;
+            background-image: url("image/study.jpg") !important;
+        }
+
+        form {
+            margin: 0 !important;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .w3-half img {
+            margin-bottom: -6px;
+            margin-top: 16px;
+            opacity: 0.8;
+            cursor: pointer
+        }
+
+        .w3-half img:hover {
+            opacity: 1
+        }
+
+        .w3-black-mix {
+            font-family: 'Potta One', cursive !important;
+            font-weight: 100 !important;
+            background-color: #424242 !important;
+            letter-spacing: 1px !important;
+            /*background-color: #495057!important;*/
+        }
+
+        .w3-text-red-mix {
+            color: #424242 !important;
+            font-weight: 100 !important;
+            font-family: 'Potta One', cursive !important;
+            letter-spacing: 1px !important;
+            /*color: #495057!important;*/
+        }
+
+        a:hover {
+            text-decoration: none !important;
+            cursor: pointer;
+        }
+
+        a {
+            color: white !important;
+            text-decoration: none !important;
+            border-width: 0;
+            border-color: #000000;
+        }
+
+        button {
+            background-color: #4caf50 !important;
+            border-color: #4caf50 !important;
+            color: white !important;
+            /*border-left: 5px outset #809385!important;*/
+            /*border-top: 5px outset #809385!important;*/
+            /*border-bottom: 5px outset #809385!important;*/
+            border-radius: 20px;
+            margin: 7px 4px 3px 0;
+            box-shadow: 3px 5px #585858;
+            font-family: 'Potta One', cursive !important;
+        }
+
+        table, .table, .table-hover {
+            background-color: #FAFAFA;
+            /*margin: 30px;*/
+            margin-top: 30px;
+            width: auto;
+            text-align: center;
+        }
+        table td {
+            font-family: "Poppins", sans-serif!important;
+        }
+
+        div.table {
+            border-left: 10px outset #809385;
+            border-top: 10px outset #809385;
+            border-bottom: 10px outset #809385;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .btn-primary{
+            background-color: #4caf50!important;
+            border-color: #4caf50!important;
+            margin-right: 5%;
+        }
+        .btn-primary:hover, button:hover{
+            background-color: #378039!important;
+            border-color: #378039!important;
+        }
+    </style>
+<!--   style slideshow -->
+    <style>
+        .mySlides {display:none}
+        .w3-left, .w3-right, .w3-badge {cursor:pointer}
+        .w3-badge {height:13px;width:13px;padding:0}
+    </style>
+</head>
+<body>
+<!-- page index.html-->
+<!--
+<div class="home">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="position: fixed; width: 100%">
+  
+  
+  // Links
+  <ul class="navbar-nav" >
+    <li class="nav-item">
+      <a class="nav-link" href="list-student">Quản lí Sinh viên</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" th:href="list-room">Quản lí Phòng</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" th:href="list-service1">Quản lí Dịch vụ</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Quản lí Vé Xe</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Hoạt động vào ra</a>
+    </li>
+  </ul>
+
+   // Brand/logo
+  
+  <div class="container" style="background-color: #343a40; float: right; padding-left: 33%; width: 500px;">
+    <div class="dropdown" style="background-color: #343a40;">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background-color: white; color: black; border-color: black; box-shadow: 1px 1px 1px black;">
+        <a class="navbar-brand" href="#" >
+          <img th:src="@{/image/KhanhBua.jpg}" alt="logo" style="width:40px;">
+        </a>
+          admin 
+      </button>
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="#">Xem tin cá nhân</a>
+        <a class="dropdown-item" href="#">Sửa thông tin cá nhân</a>
+        <a class="dropdown-item" href="#">Đăng xuất</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div style="height: 80px;"></div>
+</div>
+-->
+<!-- body danh sach bang user-->
+
+<nav class="w3-sidebar w3-collapse w3-black-mix w3-top w3-large w3-padding"
+     style="z-index:3;width:300px;font-weight:bold; color: white;background-color: #2E2E2E" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+       style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+        <h3 class="w3-padding-32 w3-black-mix"><b>Manager Dormitory</b></h3>
+    </div>
+    <div class="w3-bar-block">
+        <a href="home" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i
+                class="w3-bar-item w3-button w3-hover-white fas fa-school" style="display: inline;"></i>Home</a>
+        <a href="list-student" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i
+                class="w3-bar-item w3-button w3-hover-white fas fa-user-graduate" style="display: inline;"></i>Students</a>
+        <a href="list-room" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i
+                class="w3-bar-item w3-button w3-hover-white fas fa-bed" style="display: inline;"></i>Rooms</a>
+        <a href="list-service1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i
+                class="w3-bar-item w3-button w3-hover-white fas fa-poll-h" style="display: inline;"></i>Services</a>
+        <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i
+                class="w3-bar-item w3-button w3-hover-white fas fa-users" style="display: inline;"></i>Guest</a>
+        <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i
+                class="w3-bar-item w3-button w3-hover-white fas fa-credit-card" style="display: inline;"></i>Ticket</a>
+    </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-black-mix w3-red w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-black-mix w3-red w3-margin-right" onclick="w3_open()">☰</a>
+    <span>Manager</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+     id="myOverlay"></div>
+
+
+
+<script>
+    // Script to open and close sidebar
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
+</script>
+<!-- script logo slideshow-->
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="vi">
+<head>
+  <div th:insert="kituc-index::head"></div>
+</head>
+<body>
+
+<div th:insert="kituc-index::body"></div>
+
+<!-- them moi san pham -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+  </div>
+  <div class="formBorder">
+    
+    <h1>Sửa thông tin dịch vụ</h1>
+    <form th:action="@{/updateService1}" method="post" >
+      <div class="table">
+      <table >
+        <tr>
+          <td class="example inputLabel">
+            <div >ID:</div>
+          </td>
+          
+          <td><input size="50" type="text" name="id"
+            th:value="${service1.id}" readonly/></td>
+        </tr>
+        <tr>
+          <td class="example inputLabel">
+            <div >Name:</div>
+          </td>
+          <td><input size="50" type="text" name="name"
+            th:value="${service1.name}" /></td>
+        </tr>
+        <tr>
+          <td class="example inputLabel">
+            <div >Code:</div>
+          </td>
+          <td><input size="50"
+            name="code" th:value="${service1.code}"/></td>
+        </tr>
+        <tr>
+          <td class="example inputLabel">Price:</td>
+          <td><input size="50"
+            type="text" name="price" th:value="${service1.price}" /></td>
+        </tr>
+        <tr>
+          <td class="example inputLabel">
+            <div >Time:</div>
+          </td>
+          <td><input size="50"
+            th:value="${service1.time_service}"  type="text" name="time_service" /></td>
+        </tr>
+
+        <tr>
+          <td colspan="2" align="center"><button type="reset">Nhập lại</button>
+            <button type="submit">Lưu</button>
+            <button id="cancelButton"><a th:href="'../list-service1'">Thoát</a></button></td>
+        </tr>
+      </table>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

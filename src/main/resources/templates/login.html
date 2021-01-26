@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        body {
+            background-image: url("./image/login.jpg") !important;
+            background-size: cover;
+            font-family: 'Potta One', cursive !important;
+            color: #A4A4A4;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            line-height: 1.6;
+        }
+
+        .icons {
+            color: #A4A4A4;
+            font-size: 50px;
+        }
+
+        .titles {
+            width: 400px;
+            height: 70px;
+            background-color: white;
+            color: #04B404;
+            border-radius: 30px;
+            margin: 40px auto;
+            /*line-height: 70px;*/
+
+            border-left: 10px outset #809385;
+            border-top: 10px outset #809385;
+            border-bottom: 10px outset #809385;
+        }
+
+        .logins {
+            width: 400px;
+            border-radius: 20px;
+            height: 400px;
+            background-color: white;
+            color: black;
+            margin: 0 auto;
+            border-left: 10px outset #809385;
+            border-top: 10px outset #809385;
+            border-bottom: 10px outset #809385;
+            padding-top: 30px;
+        }
+
+        .custom-container {
+            text-align: center;
+            margin: 100px auto;
+        }
+
+        .label-login {
+            float: left;
+            padding-left: 2%;
+        }
+
+        .btn {
+            clear: both;
+            display: block;
+            background-color: green;
+            border-color: green;
+            margin: 60px auto;
+        }
+
+        .btn:hover, .btn:active {
+            background-color: #04B404 !important;
+            border-color: #04B404 !important;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="custom-container">
+    <div class="titles"><h1>Manager Dormitory</h1></div>
+    <br/>
+    <div class="logins">
+
+        <div><i class="icons fas fa-user-lock"></i></div>
+        <div class="container">
+            <!-- <h2>Log In</h2> -->
+            <br>
+            <form th:action="@{/checkLogin}" method="post" class="was-validated">
+                <div class="form-group">
+                    <label for="uname" class="label-login">Username:</label>
+                    <input type="text" class="form-control" id="uname" placeholder="Enter username" name="email" required>
+                    <!-- <div class="valid-feedback">Valid.</div> -->
+                </div>
+                <div class="form-group" >
+                    <label for="pwd" class="label-login">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
+                    <!-- <div class="valid-feedback">Valid.</div> -->
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label label-login">
+                        <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
+                        <!-- <div class="valid-feedback">Valid.</div> -->
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

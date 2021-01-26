@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="vi">
+<head>
+    <div th:insert="kituc-index::head"></div>
+</head>
+<body>
+
+<div th:insert="kituc-index::body"></div>
+
+
+<!-- body danh sach bang user-->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+    </div>
+    <h1 class="w3-text-red-mix" style="padding: 30px; text-align: center;">Danh Sách Dịch vụ</h1>
+    <div class="search" style="margin-left: 20%; margin-right: 20%">
+        <input class="form-control" id="myInput" type="text"
+               placeholder="Search..">
+    </div>
+    <br>
+    <button type="" class="w3-text-red-mix btn btn-primary" style="margin-left: 80%;">
+        <a th:href="add-service1" style="color: white;">Thêm mới</a>
+    </button>
+    <div class="table">
+        <table class="table table-hover"
+               style="margin: 30px; width: auto; text-align: center;">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Service Name</th>
+                <th>Service Code</th>
+                <th>Service Price</th>
+                <th>Service Time</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody id="myTable" th:each="Service1: ${listService1}">
+            <tr>
+                <td th:text="${Service1.id}"></td>
+                <td th:text="${Service1.name}"></td>
+                <td th:text="${Service1.code}"></td>
+                <td th:text="${#numbers.formatInteger(Service1.price,3,'POINT')}+' vnđ'"></td>
+                <td th:text="${Service1.time_service}"></td>
+                <td colspan="2" align="center">
+                    <button>
+                        <a th:href="'infoService1/'+${Service1.id}" style="color: black;">Xem
+                            chi tiết</a>
+                    </button>
+                    <button>
+                        <a th:href="'pageUpdateService1/'+${Service1.id}" style="color: black;">Sửa</a>
+                    </button>
+                    <button>
+                        <a th:href="'deleteService1/'+${Service1.id}" style="color: black;"
+                           onclick="return confirm('Are you sure you want to delete')">Xóa</a>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $(document)
+        .ready(
+            function () {
+                $("#myInput")
+                    .on(
+                        "keyup",
+                        function () {
+                            var value = $(this).val()
+                                .toLowerCase();
+                            $("#myTable tr")
+                                .filter(
+                                    function () {
+                                        $(this)
+                                            .toggle(
+                                                $(
+                                                    this)
+                                                    .text()
+                                                    .toLowerCase()
+                                                    .indexOf(
+                                                        value) > -1)
+                                    });
+                        });
+            });
+</script>
+</body>
+</html>

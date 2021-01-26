@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="vi">
+<head>
+    <div th:insert="kituc-index::head"></div>
+</head>
+<body>
+
+<div th:insert="kituc-index::body"></div>
+
+<!-- them moi san pham -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+    </div>
+    <div class="formBorder">
+
+        <h1>
+            Thông tin chi tiết Sinh viên</h1>
+        <div class="panel-body" style="margin-left: 20%; margin-right: 20%;">
+            <div class="table">
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>Code</th>
+                    <td th:text="${student.code}"></td>
+                </tr>
+                <tr>
+                    <th>Full Name</th>
+                    <td th:text="${student.full_name}"></td>
+                </tr>
+                <tr>
+                    <th>CMT</th>
+                    <td th:text="${student.cmt}"></td>
+                </tr>
+                <tr>
+                    <th>Birth day</th>
+                    <td th:text="${student.birth_day}"></td>
+                </tr>
+                <tr>
+                    <th>Hometown</th>
+                    <td th:text="${student.hometown}"></td>
+                </tr>
+                <tr>
+                    <th>Name Class</th>
+                    <td th:text="${student.name_class}"></td>
+                </tr>
+                <tr>
+                    <th>Room</th>
+                    <td th:text="${student.id_room}"></td>
+                </tr>
+
+
+            </table>
+
+            </div>
+            <div class="btn-primary"><a class="btn btn-primary" th:href="'../list-student'" th:text="Thoát" style="float: right"></a></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

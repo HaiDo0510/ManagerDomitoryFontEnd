@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="vi">
+<head>
+    <div th:insert="kituc-index::head"></div>
+</head>
+<body>
+
+<div th:insert="kituc-index::body"></div>
+
+<!-- them moi san pham -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+    </div>
+    <div class="formBorder">
+
+        <h1>Thêm mới Phòng</h1>
+        <form th:action="@{/createRoom}" method="post" >
+            <div class="table">
+            <table>
+
+                <tr>
+                    <td class="example inputLabel">
+                        <div>Number Room:</div>
+                    </td>
+                    <td><input size="50" type="text" name="number_room"
+                    /></td>
+                </tr>
+                <tr>
+                    <td class="example inputLabel">
+                        <div>Type Room:</div>
+                    </td>
+                    <td><input size="50"
+                               name="type_room"/></td>
+                </tr>
+                <tr>
+                    <td class="example inputLabel">Price:</td>
+                    <td><input size="50"
+                               type="text" name="price"/></td>
+                </tr>
+                <tr>
+                    <td class="example inputLabel">
+                        <div>Max People:</div>
+                    </td>
+                    <td><input size="50"
+                               type="text" name="max_people"/></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center"><button type="reset">Nhập Lại</button>
+                        <button type="submit">Lưu</button>
+                        <button id="cancelButton"><a th:href="'../list-room'">Thoát</a></button>
+                    </td>
+                </tr>
+            </table>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
