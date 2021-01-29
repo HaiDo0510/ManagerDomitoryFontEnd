@@ -14,7 +14,7 @@ import java.util.Map;
 
 @Service
 public class UserService {
-    public static final String REST_SERVICE_URI = "http://localhost:8081/login/";
+    public static final String REST_SERVICE_URI = "https://dothanhhai.herokuapp.com/login/";
     RestTemplate restTemplate = new RestTemplate();
 
     public Boolean checkUser(String email, String password){

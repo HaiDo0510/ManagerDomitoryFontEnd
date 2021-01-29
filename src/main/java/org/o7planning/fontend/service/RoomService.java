@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class RoomService {
-	public static final String REST_SERVICE_URI = "http://localhost:8081/room/";
+	public static final String REST_SERVICE_URI = "https://dothanhhai.herokuapp.com/room/";
 	RestTemplate restTemplate = new RestTemplate();
 
 	public List<Room> getAllRoom() throws JsonMappingException, JsonProcessingException {

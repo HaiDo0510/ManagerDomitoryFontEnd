@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class StudentService {
-    public static final String REST_SERVICE_URI = "http://localhost:8081/student/";
+    public static final String REST_SERVICE_URI = "https://dothanhhai.herokuapp.com/student/";
     RestTemplate restTemplate = new RestTemplate();
 
     public List<Student> getAllStudent() throws JsonMappingException, JsonProcessingException {
@@ -28,7 +28,7 @@ public class StudentService {
     }
 
     public StudentPage getAllStudentPage(Integer page, Integer limit) {
-        StudentPage studentPage = restTemplate.getForObject("http://localhost:8081/student" + "?page=" + page + "&limit=" + limit, StudentPage.class);
+        StudentPage studentPage = restTemplate.getForObject("https://dothanhhai.herokuapp.com/student" + "?page=" + page + "&limit=" + limit, StudentPage.class);
         return studentPage;
     }
 
